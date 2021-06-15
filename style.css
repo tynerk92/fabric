@@ -1,0 +1,64 @@
+/*
+Theme Name: Fabric
+Theme URI: https://fabricthemes.com
+Author: Kylon Tyner
+Author URI: https://twitter.com/ktyner6
+Description: This is a skeleton template
+Version: 1.0
+Requires at least: 5.0
+Tested up to: 5.4
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: XXXX
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+* {
+  font-family: sans-serif;
+}
+
+/* BEGIN Post Summary */
+  [class^="post-summary"].sticky {
+    /* TODO Style sticky post summaries here */
+  }
+/* END Post Summary */
+
+/* BEGIN Required Classes */
+  .wp-caption {
+    /* TODO implement this */
+  }
+  .wp-caption-text {
+    /* TODO implement this */
+  }
+  .screen-reader-text {
+    /* TODO implement this */
+  }
+  .gallery-caption {
+    /* TODO implement this */
+  }
+  .bypostauthor {
+    /* TODO implement this */
+  }
+  .alignright {
+    /* TODO implement this */
+  }
+  .alignleft {
+    /* TODO implement this */
+  }
+  .aligncenter {
+    /* TODO implement this */
+  }
+/* END Required Classes */
+
+/* BEGIN Recommended CSS */
+  .size-auto,
+  .size-full,
+  .size-large,
+  .size-medium,
+  .size-thumbnail {
+  	max-width: 100%;
+  	height: auto;
+  }
+/* END Recommended CSS */
