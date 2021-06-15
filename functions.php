@@ -13,8 +13,8 @@ if ( ! isset( $content_width ) ) {
     add_theme_support( 'title-tag' );
 
     /** post formats */
-    $post_formats = array('aside','image','gallery','video','audio','link','quote','status');
-    add_theme_support( 'post-formats', $post_formats);
+    $post_formats = array( 'aside', 'image', 'gallery', 'video', 'audio', 'link', 'quote', 'status' );
+    add_theme_support( 'post-formats', $post_formats );
 
     /** post thumbnail **/
     add_theme_support( 'post-thumbnails' );
@@ -63,6 +63,7 @@ if ( ! isset( $content_width ) ) {
 
 /**
  * This is useful for determining which template will be used to render the page
+ * TODO Remove this for production
  *
  * @return string The current page type string
  */
@@ -103,6 +104,10 @@ function get_page_type() {
     return $page;
 }
 
+/*
+    SECTION -- Utility Functions
+ */
+
 /**
  * Includes a template-part with the provided variables available to it.
  *
@@ -110,17 +115,45 @@ function get_page_type() {
  * @param  array  $variables Data that will be accessed inside the template
  * @return void
  */
-function includeTemplatePart($fileName, $variables = []) {
-  extract($variables);
-  include($fileName);
+function includeTemplatePart( $fileName, $variables = [] ) {
+  extract( $variables );
+  include( $fileName );
 }
 
+/**
+ * Loads a customization module from the 'modules' directory.
+ *
+ * The module must be inside a subdirectory and the module .php file must have
+ * the same name as the subdirectory.
+ *
+ * Example directory structure for loadModule( 'colors' )
+ * |-modules
+ *  |-colors
+ *   |-colors.php
+ *   |-styles.php
+ *
+ * @param  string $fileName Name/path of the file within the 'modules' directory
+ * @param  string $subDirectoryPath The path within the 'modules' directory where the module exists
+ * @return void
+ */
+function loadModule( $moduleName ) {
+  include( dirname(__FILE__) . '/modules/' . $moduleName . '/' . $moduleName . '.php');
+}
+
+/**
+ * Gets this theme's css directory uri, instead of the uri of the required file 'style.css'
+ * @return string The uri of the folder that contains all non-root css stylesheets
+ */
 function get_css_uri() {
   return get_stylesheet_directory_uri() . '/assets/css';
 }
 
 /*
-  Enqueue scripts
+    SECTION -- WP Hooks - See http://rachievee.com/the-wordpress-hooks-firing-sequence/
+ */
+
+/**
+ * Load any built-in and custom scripts (.js)
  */
 function XXXX_enqueue_scripts() {
   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -129,11 +162,11 @@ function XXXX_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'XXXX_enqueue_scripts' );
 
-function XXXX_register_editor_css() {
-  add_editor_style();
-}
-add_action( 'admin_init', 'XXXX_register_editor_css' );
-
+/**
+ * Registers menu locations in the theme.
+ * Can be used in templates:
+ *     wp_nav_menu( array( 'theme_location' => 'header-menu' ) )
+ */
 function XXXX_register_menus() {
   register_nav_menus(
     array(
@@ -142,4 +175,52 @@ function XXXX_register_menus() {
   );
 }
 add_action( 'init', 'XXXX_register_menus' );
+
+/**
+ * Loads the root section that will contain all module sections/settings/controls
+ *
+ * @param WP_Customize_Manager $wp_customize
+ *  The customization manager that we will add sections/settings/controls to
+ */
+function XXXX_load_root_customizer_section( $wp_customize ) {
+  // TODO Edit the title to reflect your theme's name
+  $wp_customize->add_panel( 'XXXX-theme-panel',
+    array (
+      'title'       => __( '<ThemeName> Customization', 'XXXX' ),
+      'priority'    => 10,
+      'description' => __( 'All available theme options', 'XXXX' )
+    )
+  );
+}
+add_action( 'customize_register', 'XXXX_load_root_customizer_section' );
+
+/**
+ * Load customization modules.
+ */
+function XXXX_load_modules() {
+  loadModule( 'colors' );
+  // TODO Add any modules that you need here
+}
+add_action( 'after_setup_theme', 'XXXX_load_modules', 20 );
+
+/*
+    SECTION - DO NOT EDIT BELOW THIS
+ */
+
+/**
+ * DO NOT MODIFY - Loads the base module as a foundation for importing other modules
+ */
+function XXXX_load_base_module() {
+  /* Loads the XXXX_Customizer_Base class */
+  require_once( dirname(__FILE__) . '/modules/customizer-base.php' );
+}
+add_action( 'after_setup_theme', 'XXXX_load_base_module' );
+
+/**
+ * DO NOT MODIFY - Allows custom CSS in customizer to be applied
+ */
+function XXXX_register_editor_css() {
+  add_editor_style();
+}
+add_action( 'admin_init', 'XXXX_register_editor_css' );
 ?>
