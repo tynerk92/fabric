@@ -1,5 +1,8 @@
 <?php
-
+    /**
+     * This class, when extended, provides a self-contained module that can be
+     * easily loaded into the customizer.
+     */
     abstract class XXXX_Customizer_Base {
       const THEME_PANEL = 'XXXX-theme-panel';
 

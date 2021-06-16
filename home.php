@@ -27,7 +27,7 @@
               You may turn this off to display the default excerpt by going to ********************
             </p>
           <?php } ?>
-          <p>Published <a href="<?php the_permalink() ?>" title="<?php the_title_attribute() ?>"><?php the_date() ?></a></p>
+          <p>Published <a href="<?php the_permalink() ?>" title="<?php the_title_attribute() ?>"><?php echo get_the_date() ?></a></p>
           <span>Categorized as </span><?php the_category( ', ' ) ?>
         </div>
       <?php } ?>
