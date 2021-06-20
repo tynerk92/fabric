@@ -199,7 +199,8 @@ add_action( 'customize_register', 'XXXX_load_root_customizer_section' );
  */
 function XXXX_load_modules() {
   loadModule( 'colors' );
-  // TODO Add any modules that you need here
+  loadModule( 'nav-waves' );
+  loadModule( 'hero' );
 }
 add_action( 'after_setup_theme', 'XXXX_load_modules', 20 );
 

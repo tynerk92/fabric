@@ -17,6 +17,29 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 * {
   font-family: sans-serif;
+  color: #333;
+}
+
+h1 {
+  font-size: 32pt;
+}
+
+h2 {
+  font-size: 26pt;
+}
+
+h3 {
+  font-size: 22pt;
+}
+
+h4 {
+  font-size: 20pt;
+}
+
+p {
+  margin-bottom: 1em;
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 600;
 }
 
 /* BEGIN Post Summary */
@@ -24,6 +47,17 @@ Use it to make something cool, have fun, and share what you've learned with othe
     /* TODO Style sticky post summaries here */
   }
 /* END Post Summary */
+
+/* BEGIN Footer Styles */
+  footer {
+    background-color: #2f2e41;
+  }
+
+  .banner {
+    color: #fafafa;
+    padding: 2em 0;
+  }
+/* END Footer Styles */
 
 /* BEGIN Required Classes */
   .wp-caption {

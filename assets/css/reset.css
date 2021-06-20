@@ -12,7 +12,6 @@
   footer, header, hgroup, menu, nav, section, summary,
   time, mark, audio, video {
       margin: 0;
-      margin-bottom: 1em;
       padding: 0;
       border: 0;
       outline: 0;
@@ -24,6 +23,7 @@
 
   body {
     background-color: white;
+    overflow-x: hidden;
   }
 
   p {
@@ -39,7 +39,7 @@
   }
 
   article,aside,details,figcaption,figure,
-  footer,header,hgroup,menu,nav,section {
+  footer,header,hgroup,menu,nav,section,label {
       display: block;
   }
 
@@ -81,5 +81,13 @@
 
   input, select {
       vertical-align: middle;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
   }
 /* END Style Reset */
