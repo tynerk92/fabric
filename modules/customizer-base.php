@@ -1,4 +1,5 @@
 <?php
+
     /**
      * This class, when extended, provides a self-contained module that can be
      * easily loaded into the customizer.
@@ -6,7 +7,10 @@
     abstract class XXXX_Customizer_Base {
       const THEME_PANEL = 'XXXX-theme-panel';
 
-      public function __construct() {
+      protected $name;
+
+      public function __construct( $name ) {
+        $this->name = $name;
         add_action( 'customize_register', array( $this, 'registerModuleCustomization' ), 20 );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueueScripts' ) );
       }
@@ -14,7 +18,10 @@
       abstract protected function registerSection( $wp_customize );
       abstract protected function registerSettings( $wp_customize );
       abstract protected function registerControls( $wp_customize );
-      abstract protected function registerStyles();
+
+      private function registerStyles() {
+        require_once( dirname(__FILE__) . '/' . $this->name . '/styles.php' );
+      }
 
       /**
        * Registers a self-contained module as a new customizer section.
@@ -44,6 +51,10 @@
       public function enqueueScripts() {
         $this->registerStyles();
       }
+    }
+
+    function renderModule( $name ) {
+      include( dirname(__FILE__) . '/' . $name . '/template.php' );
     }
 
 ?>

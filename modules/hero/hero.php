@@ -68,22 +68,24 @@
     protected function registerStyles() {
       require_once( dirname(__FILE__) . '/styles.php' );
     }
+
+    protected function registerModule() {
+      $this->name = 'hero';
+      $this->html =
+      '
+        <section class="hero">
+          <img class="hero-bg" src="<?php echo get_theme_mod( "XXXX-bg-hero-image-setting" ) ?>" alt="">
+          <div class="content-wrapper">
+            <img class="hero-image" src="<?php echo get_theme_mod( "XXXX-hero-image-setting" ) ?>" alt="">
+            <div class="hero-text">
+              <h0>Design With Fabric</h0>
+              <h3>The Tightly-Woven Foundation Theme</h3>
+            </div>
+          </div>
+        </section>
+      ';
+    }
   }
 
-  new XXXX_Hero_Module();
-
-  function the_hero() {
-    echo '
-    <section class="hero">
-      <img class="hero-bg" src="' . get_theme_mod( 'XXXX-bg-hero-image-setting' ) . '" alt="">
-      <div class="content-wrapper">
-        <img class="hero-image" src="' . get_theme_mod( 'XXXX-hero-image-setting' ) . '" alt="">
-        <div class="hero-text">
-          <h0>Design With Fabric</h0>
-          <h3>The Tightly-Woven Foundation Theme</h3>
-        </div>
-      </div>
-    </section>
-    ';
-  }
+  new XXXX_Hero_Module( 'hero' );
 ?>

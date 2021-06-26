@@ -144,8 +144,8 @@ function loadModule( $moduleName ) {
  * Gets this theme's css directory uri, instead of the uri of the required file 'style.css'
  * @return string The uri of the folder that contains all non-root css stylesheets
  */
-function get_css_uri() {
-  return get_stylesheet_directory_uri() . '/assets/css';
+function get_scss_uri() {
+  return get_stylesheet_directory_uri() . '/assets/scss';
 }
 
 /*
@@ -183,7 +183,7 @@ add_action( 'init', 'XXXX_register_menus' );
  *  The customization manager that we will add sections/settings/controls to
  */
 function XXXX_load_root_customizer_section( $wp_customize ) {
-  // TODO Edit the title to reflect your theme's name
+  // TODO Edit <ThemeName> to reflect your theme's name
   $wp_customize->add_panel( 'XXXX-theme-panel',
     array (
       'title'       => __( '<ThemeName> Customization', 'XXXX' ),
@@ -201,6 +201,7 @@ function XXXX_load_modules() {
   loadModule( 'colors' );
   loadModule( 'nav-waves' );
   loadModule( 'hero' );
+  loadModule( 'basic-nav' );
 }
 add_action( 'after_setup_theme', 'XXXX_load_modules', 20 );
 

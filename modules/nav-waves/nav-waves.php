@@ -35,8 +35,10 @@
     protected function registerStyles() {
       // Empty
     }
+
+    protected function registerModule() { $this->name = 'nav-waves'; }
   }
 
   // Initialize this module
-  new XXXX_Navigation_Waves_Module();
+  new XXXX_Navigation_Waves_Module( 'nav-waves' );
 ?>

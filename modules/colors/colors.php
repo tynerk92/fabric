@@ -42,8 +42,10 @@
     protected function registerStyles() {
       require_once( dirname(__FILE__) . '/styles.php' );
     }
+
+    protected function registerModule() { $this->name = 'colors'; }
   }
 
   // Initialize this module
-  new XXXX_Colors_Module();
+  new XXXX_Colors_Module( 'colors' );
 ?>
