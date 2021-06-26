@@ -1,0 +1,30 @@
+{
+  "name": "fabric",
+  "version": "1.0.0",
+  "description": "Fabric Foundation Theme",
+  "main": "index.php",
+  "scripts": {
+    "css": "node-sass --output-style compressed --include-path scss assets/scss/style.scss style.css && node-sass --output-style compressed --include-path scss assets/scss/abovethefold.scss abovethefold.css",
+    "watch": "nodemon -e scss -x \"npm run css\"",
+    "lint": "stylelint **/*.scss",
+    "lint-fix": "stylelint **/*.scss --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tynerk92/fabric.git"
+  },
+  "author": "Kylon Tyner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tynerk92/fabric/issues"
+  },
+  "homepage": "https://github.com/tynerk92/fabric#readme",
+  "devDependencies": {
+    "node-sass": "^6.0.1",
+    "nodemon": "^2.0.7",
+    "rtlcss": "^3.2.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-wordpress": "^17.0.0"
+  }
+}

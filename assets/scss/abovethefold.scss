@@ -1,0 +1,19 @@
+@import 'reset';
+
+:root {
+  // Colors
+  --clr-primary: #4ed983;
+  --clr-primary-rgb: 78, 217, 131;
+  --clr-secondary: #2f2e41;
+  --clr-secondary-rgb: 47, 46, 65;
+
+  // Fonts
+  --font-primary: 'Comfortaa', sans-serif;
+  --font-secondary: 'Truculenta', sans-serif;
+}
+
+.page-wrapper {
+  width: 90vw;
+  max-width: 1920px;
+  margin: 0 auto;
+}

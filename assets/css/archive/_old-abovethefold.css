@@ -1,0 +1,183 @@
+/*
+  TODO Implement Above-the-fold CSS only.
+  All of this is just an example.
+*/
+
+:root {
+  --clr-primary: #4ed983;
+}
+
+ body {
+   background-color: #fafafa;
+ }
+
+h0 {
+  font-size: 46pt;
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Truculenta', sans-serif;
+  font-weight: bold;
+  line-height: 2em;
+}
+
+header, .content-wrapper {
+  margin: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 50vw;
+  transform: translateX(-50%);
+  width: 100vw;
+  z-index: 10;
+  background: white;
+  padding-top: 8px;
+  height: 74px;
+}
+
+body.admin-bar header {
+  top: 32px;
+}
+
+.custom-logo {
+  height: 80px;
+  width: auto;
+}
+
+header li {
+  display: inline-block;
+}
+
+.page_item_has_children > ul {
+  display: none;
+}
+
+.content-wrapper {
+  max-width: 1920px;
+  padding: 0 5vw;
+  margin: 0 auto;
+}
+
+header .content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -17px;
+}
+
+.navigation-shape {
+  filter: drop-shadow(0px 5px 3px rgba(0,0,0,0.1));
+  z-index: 0;
+  width: 105%;
+  margin-left: -2.5%;
+}
+
+.hero {
+  position: relative;
+	padding: 150px 0 75px;
+	background-color: #ebfaf1;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 50%;
+  z-index: 1;
+}
+
+.hero-bg {
+	position: absolute;
+	height: 130%;
+	z-index: 0;
+	left: -135px;
+	top: 0;
+}
+
+.hero .content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+.menu li a {
+  font-family: 'Truculenta', sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  font-size: 1.3rem;
+  text-decoration: none;
+  line-height: 2em;
+}
+
+.menu li a:hover {
+  color: var(--clr-primary);
+}
+
+.menu li {
+  position: relative;
+  padding: 0 0.5em;
+}
+
+@keyframes stretch {
+  0% {
+    transform: scaleX(0%);
+  }
+  100% {
+    transform: scaleX(100%);
+  }
+}
+
+.current_page_item:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--clr-primary);
+  animation: 0.2s ease 0s 1 stretch;
+}
+
+.wp-block-button {
+  padding: 0.5rem;
+}
+
+.wp-block-button a {
+  border-radius: 4px;
+  background-color: var(--clr-primary);
+}
+
+.wp-block-button a:hover,
+.comment-form input.submit:hover {
+  background-color: #27b75e;
+}
+
+.wp-block-button.is-style-outline a {
+  border: 2px solid var(--clr-primary);
+}
+
+.is-style-outline > .wp-block-button__link:not(.has-text-color) {
+  color: var(--clr-primary) !important;
+}
+
+.comment-form input.submit {
+	color: #fff;
+	background-color: #32373c;
+	border: none;
+	border-radius: 1.55em;
+	box-shadow: none;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 1.125em;
+	padding: .667em 1.333em;
+	text-align: center;
+	text-decoration: none;
+	overflow-wrap: break-word;
+  border-radius: 4px;
+  background-color: var(--clr-primary);
+}
