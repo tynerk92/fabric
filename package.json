@@ -19,6 +19,9 @@
     "url": "https://github.com/tynerk92/fabric/issues"
   },
   "homepage": "https://github.com/tynerk92/fabric#readme",
+  "dependencies": {
+    "tar": ">=1.6.2"
+  },
   "devDependencies": {
     "node-sass": "^6.0.1",
     "nodemon": "^2.0.7",
